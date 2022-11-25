@@ -4,47 +4,43 @@ using UnityEngine;
 
 public class followPoints : MonoBehaviour
 {
+    public Ai ai;
     [SerializeField]
     private Transform[] waypoints;
-
     [SerializeField]
     private float moveSpeed = 2f;
-
     public int waypointIndex = 0;
-
-    public bool canMove = true;
-
+    public bool Change;
     private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
     }
-
-    // Update is called once per frame
     private void Update()
     {
-        if (canMove)
-        {
-            Move();
-        }
+        Move();
     }
-
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position,
-        waypoints[waypointIndex].transform.position,
-        moveSpeed * Time.deltaTime);
-
+         transform.position = Vector3.MoveTowards(transform.position,
+         waypoints[waypointIndex].transform.position,
+         moveSpeed * Time.deltaTime);
         if (transform.position == waypoints[waypointIndex].transform.position)
         {
            waypointIndex += 1;
         }
-        if (waypointIndex == 21)
+        else if (waypointIndex == 21)
         {
             waypointIndex = 0;
         }
-        if (waypointIndex == waypoints.Length)
+        else if (waypointIndex == waypoints.Length)
         {
             waypointIndex = 0;
         }
+        else if (Change == true)
+        {
+            Debug.Log("dsauoida");
+            ai.agent.SetDestination(ai.player.position);
+        }
+
     }
 }
