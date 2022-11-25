@@ -11,37 +11,45 @@ public class followPoints : MonoBehaviour
     private float moveSpeed = 2f;
     public int waypointIndex = 0;
     public bool Change = false;
+    public bool canMove = true;
+
     private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
     }
     void Update()
     {
-        Move();
+        if(canMove)
+        {
+            if (Change)
+            {
+                Debug.Log("dsauoida");
+                ai.agent.SetDestination(ai.player.position);
+            }
+            else if(!Change)
+            {
+                Move();
+            }
+        }
     }
     void Move()
     {
-        if (!Change)
+        Debug.Log(Change);
+
+        if (waypointIndex <= waypoints.Length - 1)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-            waypoints[waypointIndex].transform.position,
-            moveSpeed * Time.deltaTime);
-        }
-        if (transform.position == waypoints[waypointIndex].transform.position)
-        {
-            waypointIndex += 1;
-        }
-        if (waypointIndex == waypoints.Length)
-        {
-            waypointIndex = 0;
-        }
+                waypoints[waypointIndex].transform.position,
+                moveSpeed * Time.deltaTime);
 
-         
-        else if (Change == true)
-        {
-            Debug.Log("dsauoida");
-            ai.agent.SetDestination(ai.player.position);
+            if (transform.position == waypoints[waypointIndex].transform.position)
+            {
+                waypointIndex += 1;
+            }
+            if (waypointIndex == 4)
+            {
+                waypointIndex = 0;
+            }
         }
-
     }
 }
