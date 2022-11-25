@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 156431485}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,11 +730,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 824250157}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9c34db1cdbad3c478f3721f5777f7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai: {fileID: 824250165}
   waypoints:
   - {fileID: 1284286151}
   - {fileID: 1296631328}
@@ -831,8 +832,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0983858, y: 1.029112, z: 2.7172487}
-  m_Center: {x: -0.048928466, y: 0.079224, z: -0.042804196}
+  m_Size: {x: 10.649754, y: 3.5372572, z: 13.473323}
+  m_Center: {x: -0.048928466, y: 0.42910755, z: 0.66805196}
 --- !u!195 &824250164
 NavMeshAgent:
   m_ObjectHideFlags: 0

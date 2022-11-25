@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class followPoints : MonoBehaviour
 {
+    public Ai ai;
     [SerializeField]
     private Transform[] waypoints;
     [SerializeField]
     private float moveSpeed = 2f;
     public int waypointIndex = 0;
+    public bool Change;
     private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
@@ -26,13 +28,19 @@ public class followPoints : MonoBehaviour
         {
            waypointIndex += 1;
         }
-        if (waypointIndex == 21)
+        else if (waypointIndex == 21)
         {
             waypointIndex = 0;
         }
-        if (waypointIndex == waypoints.Length)
+        else if (waypointIndex == waypoints.Length)
         {
             waypointIndex = 0;
         }
+        else if (Change == true)
+        {
+            Debug.Log("dsauoida");
+            ai.agent.SetDestination(ai.player.position);
+        }
+
     }
 }
