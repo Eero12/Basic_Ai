@@ -720,7 +720,7 @@ MonoBehaviour:
   - {fileID: 1296631328}
   - {fileID: 1481941131}
   - {fileID: 1061685426}
-  moveSpeed: 5000
+  moveSpeed: 30
   waypointIndex: 0
 --- !u!135 &824250159
 SphereCollider:
@@ -1008,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1455281324
 Transform:
   m_ObjectHideFlags: 0
