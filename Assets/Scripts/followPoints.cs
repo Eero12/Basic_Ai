@@ -12,6 +12,8 @@ public class followPoints : MonoBehaviour
 
     public int waypointIndex = 0;
 
+    public bool canMove = true;
+
     private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
@@ -20,14 +22,17 @@ public class followPoints : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Move();
+        if (canMove)
+        {
+            Move();
+        }
     }
 
     private void Move()
     {
-         transform.position = Vector3.MoveTowards(transform.position,
-         waypoints[waypointIndex].transform.position,
-         moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position,
+        waypoints[waypointIndex].transform.position,
+        moveSpeed * Time.deltaTime);
 
         if (transform.position == waypoints[waypointIndex].transform.position)
         {
