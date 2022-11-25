@@ -10,32 +10,33 @@ public class followPoints : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
     public int waypointIndex = 0;
-    public bool Change;
+    public bool Change = false;
     private void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
     }
-    private void Update()
+    void Update()
     {
         Move();
     }
-    private void Move()
+    void Move()
     {
-         transform.position = Vector3.MoveTowards(transform.position,
-         waypoints[waypointIndex].transform.position,
-         moveSpeed * Time.deltaTime);
+        if (!Change)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+            waypoints[waypointIndex].transform.position,
+            moveSpeed * Time.deltaTime);
+        }
         if (transform.position == waypoints[waypointIndex].transform.position)
         {
-           waypointIndex += 1;
+            waypointIndex += 1;
         }
-        else if (waypointIndex == 21)
+        if (waypointIndex == waypoints.Length)
         {
             waypointIndex = 0;
         }
-        else if (waypointIndex == waypoints.Length)
-        {
-            waypointIndex = 0;
-        }
+
+         
         else if (Change == true)
         {
             Debug.Log("dsauoida");

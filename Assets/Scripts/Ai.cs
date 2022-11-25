@@ -17,12 +17,13 @@ public class Ai : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && this.CompareTag("AI"))
+        //if (other.gameObject.CompareTag("Player") && this.CompareTag("AI"))
+        if (other.gameObject.name == "attackCube")
         {
             followpoints.Change = true;
             Debug.Log("Osui");           
             //agent.SetDestination(player.position);
-    }
+        }
     }
 }
 
